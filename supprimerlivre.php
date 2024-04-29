@@ -1,5 +1,5 @@
 <?php
-include "home.php";
+include "header.php";
 $id=$_GET['id']; 
 $pdo = new \PDO('mysql:host=localhost;dbname=biblio', 'root','Masgroovy_06');
 $statement = $pdo->prepare("DELETE FROM livres WHERE idlivres = :id");

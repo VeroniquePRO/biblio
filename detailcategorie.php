@@ -1,16 +1,14 @@
 <?php 
-include "home.php";
+include "header.php";
 $id= $_GET['id'];
 
 ?>
 <?php
 $pdo = new \PDO('mysql:host=localhost;dbname=biblio', 'root','Masgroovy_06');
-$statement=$pdo->query("select * from categories WHERE idcategories=$id");
+$statement=$pdo->query("SELECT * FROM categories WHERE idcategories=$id");
 $categories = $statement->fetch(PDO::FETCH_ASSOC);
 
-echo "<pre>";
-var_dump($categories);
-echo "</pre>";
+
 ?>
 
 Genre : 
@@ -29,7 +27,6 @@ foreach ($livres as $onelivre){ ?>
         <?=$onelivre['titre']?>
     </a>
     <br>
-
 <?php
 }
 ?>

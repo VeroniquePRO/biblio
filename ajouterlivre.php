@@ -1,5 +1,6 @@
 <?php
-include "home.php";
+include "header.php";
+$id= $_GET['id'];
 
 
 $pdo = new \PDO('mysql:host=localhost;dbname=biblio', 'root', 'Masgroovy_06');
@@ -22,7 +23,7 @@ $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
 Nouveau livre 
 <hr>
 
-<form action="sauvegardelivre.php" method="POST" >
+<form action="sauvegardelivre.php" method="POST" enctype="multipart/form-data">>
    Titre : 
 <input name="titre" type="text" /><br>
 
@@ -54,8 +55,10 @@ Auteur :
        </a>avant de saisir votre nouveau livre.
     </div> 
 <br>
-    Sommaire : <br>
-    <textarea id="sommaire" name="sommaire" rows="10" cols="50"></textarea>
+    Synopsis : <br>
+    <textarea id="synopsis" name="synopsis" rows="10" cols="50"></textarea>
 <br>
+<label for="upload">Envoyer une image</label>
+    <input type="file" name="cover" id="upload"><br>
    <input type="submit" value = "ajouter">
 </form>

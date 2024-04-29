@@ -1,5 +1,5 @@
 <?php 
-include "home.php";
+include "header.php";
 $id= $_GET['id'];
 
 ?>

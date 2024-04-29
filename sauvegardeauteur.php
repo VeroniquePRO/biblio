@@ -1,5 +1,5 @@
 <?php
-include "home.php";
+include "header.php";
 
 $nom=$_POST['nom'];
 var_dump($_POST);

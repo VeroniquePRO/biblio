@@ -1,6 +1,6 @@
-<?php 
-include "home.php";
-$id= $_GET['id'];
+<?php
+include "header.php";
+$id = $_GET['id'];
 ?>
 <?php
 $pdo = new \PDO('mysql:host=localhost;dbname=biblio', 'root', 'Masgroovy_06');
@@ -16,25 +16,18 @@ $statement->bindParam(':id', $id, PDO::PARAM_INT);
 $statement->execute();
 $livres = $statement->fetch(PDO::FETCH_ASSOC);
 
-echo "<pre>";
-var_dump($livres);
-echo "</pre>";
 ?>
 
-Vous avez cliqué sur le livre
-<?=$id?>
- Nom : 
-<?=$livres['titre']?>
-&nbsp;
-de l'auteur:
-<?=$livres['nom']?>
-&nbsp;
+<body>
 
-pour la catégorie:
-<?=$livres['genre']?>
-&nbsp;
-
-Sommaire :
-<?=$livres['sommaire']?>
+  <div class="cardcontainer">
+    <div class="card" style="width: 18rem;">
+      <img src=<?= $livres['cover'] ?> class="card-img-top" alt="fd.png">
+    </div>
+      <div class="card-body">
+        <p class="card-title">Vous avez selectionné le livre &nbsp;<?= $livres['titre'] ?> de l'auteur <?= $livres['nom'] ?>&nbsp;
+        pour la catégorie <?= $livres['genre'] ?> &nbsp;</p>
+        <p class="synopsis">Synopsis :<br><?= $livres['synopsis'] ?></p>
+      </div>
+  </div>
 </body>
-

@@ -1,0 +1,47 @@
+:root {
+    background-image: url();
+    width: 100%;
+    height:900px;
+    background-position: center;
+    background-repeat:  no-repeat;
+    background-size: cover;
+}
+
+.card {
+    border: solid;
+    border-radius: 50px;
+}
+ 
+  header {
+    font-size: 30px;
+  }
+
+
+  
+  p {
+    text-align: center;
+  }
+  
+  input,
+  textarea {
+    /* On s'assure que les champs texte ont la mÃªme police
+         Par dÃ©faut, les zones de texte ont une police Ã  chasse
+         fixe. */
+    font: 1em sans-serif;
+    font-size: large;
+    padding: 10px;
+  
+    margin-top: 2%;
+    /* Taille uniforme pour des champs */
+    width: 70%;
+    box-sizing: border-box;
+  
+    /* On utilise la mÃªme bordure que pour le formulaire */
+    border: 1px solid #999;
+  }
+  
+  button {
+    border-radius: 30px;
+    background-color: cadetblue;
+  }
+  

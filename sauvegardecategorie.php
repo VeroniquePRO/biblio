@@ -1,5 +1,5 @@
 <?php
-include "home.php";
+include "header.php";
 
 $genre=$_POST['genre'];
 var_dump($_POST);

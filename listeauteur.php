@@ -1,32 +1,32 @@
-<?php 
-include "home.php";
+<?php
+include "header.php";
 
 $pdo = new \PDO('mysql:host=localhost;dbname=biblio', 'root', 'Masgroovy_06');
-$statement=$pdo->query("select * from auteurs");
+$statement = $pdo->query("select * from auteurs");
 $auteurs = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-echo "<pre>";
-var_dump($auteurs);
-echo "</pre>";
-
 ?>
-<h1> Liste des auteurs<h1><hr></h1>
-<a href="ajouterauteur.php?"> 
-    Ajouter
-    </a>
+        <h1>Liste des auteurs</h1>
 <hr>
-<?php 
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Auteurs</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($auteurs as $oneauteur) { ?>
+            <tr>
+                <td><a href="detailauteur.php?id=<?=$oneauteur['idauteurs']?>">
+                        <?= $oneauteur['nom'] ?></a></td>
+                <td>
 
-foreach ($auteurs as $oneauteur){ ?>
-    Nom de l'auteur: 
-    <a href="detailauteur.php?id=<?=$oneauteur['idauteurs']?>">
-        <?=$oneauteur['nom']?>
-    </a> 
-    &nbsp;<a href="modifierauteur.php?id=<?=$oneauteur['idauteurs']?>">Modifier</a>
-    &nbsp;<a href="supprimerauteur.php?id=<?=$oneauteur['idauteurs']?>"> 
-       Supprimer
-    </a>
-    <br>
-    <?php     
-}
-?>
+                    <a href="modifierauteur.php?id=<?=$oneauteur['idauteurs'] ?>"> Modifier</a>
+                    <a href="supprimerauteur.php?id=<?=$oneauteur['idauteurs']?>">Supprimer</a>
+                </td>
+            </tr>
+        <?php } ?>
+    </tbody>
+</table>
+<a href="ajouterauteur.php?id=">Ajouter un nouvelle auteur</a> 
